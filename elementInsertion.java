@@ -24,8 +24,14 @@ public class elementInsertion{
         System.out.print("enter your value: ");
         num = sc.nextInt();
         
+        //show original array
+        System.out.println("original array is: ");
+        for (int i = 0; i < arr.length; i++){
+            System.out.println(arr[i]);
+        }
+
         //input value at desired position
-        arr[pos] = num;
+        arr[pos-1] = num;
 
         //show new values of Array
         System.out.println("arrays contains following values: ");
