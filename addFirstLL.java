@@ -1,3 +1,4 @@
+import java.util.Scanner; //import java utilities for scanner class
 class LL {
     Node head; // Reference to head node
 
@@ -47,6 +48,41 @@ class LL {
         current.next = newNode; //assign current's next to new node
     }
 
+    //mehtod to delete first node
+    public void delFirst(){
+        //if there's only single node in list
+        if(head.next == null){
+            head = null; //set head to null
+        }
+
+        //if there's more nodes in linkedlist
+        head = head.next; //set head's next to head, it'll break the current head node from the linkedlist
+    }
+
+    //method to delete last node
+    public void delLast(){
+        //check if list isnt empty
+        if(head == null){
+            System.out.println("LinkedList is empty");
+        }
+        //if there's only one node in list
+        if(head.next == null){
+            head = null; //set head to null
+        }
+        
+        //create a refrence for last and second last node
+        Node lastNode = head.next;
+        Node secLast = head;
+
+        //traverse until last node's next is null
+        while(lastNode.next != null){
+            //update & traverse
+            lastNode = lastNode.next;
+            secLast = secLast.next;
+        }
+        secLast.next = null; //simply set second last node's next to null, it'll unchain the last node
+    }
+
     // Method to display the linked list
     public void display() {
         Node current = head; // Start from the head by assigning a refrence variable named current
@@ -60,6 +96,9 @@ class LL {
 
 public class addFirstLL {
     public static void main(String[] args) {
+        //make an object of scanner class for input
+        Scanner sc = new Scanner(System.in);
+    
         // Make an object of LL class to create a linked list
         LL list = new LL();
 
@@ -84,6 +123,32 @@ public class addFirstLL {
 
         //Display linked list after adding at last position
         System.out.println("Linked list after adding elements at last position: ");
+        list.display();
+
+        //newline for clear result
+        System.out.println();
+
+        //ask user which node to delete
+        System.out.print("Which node do you want to delete (1- First Node 2- last Node): ");
+        int delNode = sc.nextInt();
+        while(delNode < 1 || delNode > 2){
+            System.out.println("choose only 1 or 2: ");
+        }
+
+        switch(delNode){
+            case 1:
+            list.delFirst();
+            break;
+
+            case 2:
+            list.delLast();
+            break;
+        }
+        //newline for clear result
+        System.out.println();
+        
+        //show linked list after deleting elements
+        System.out.println("Linked list after deleting elements: ");
         list.display();
     }
 }
