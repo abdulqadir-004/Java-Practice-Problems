@@ -14,7 +14,7 @@ class LL {
 
     // Method to add new nodes at the first position of the linked list
     public void addFirst(String data) {
-        Node newNode = new Node(data); // Create a new node
+        Node newNode = new Node(data); // Create a new node with data as parameter
 
         // Check if there's already an existing linked list, if yes then add data
         if (head == null) {
@@ -28,10 +28,29 @@ class LL {
         head = newNode;
     }
 
+    //Method to add new nodes at the last position of the linked list
+    public void addLast(String data){
+        Node newNode = new Node(data); // Create a new node with data as parameter
+
+        // Check if there's already an existing linked list, if yes then add data
+        if (head == null) {
+            head = newNode;
+            return;
+        }
+
+        /*if there's already an existing linkedlist then create a current variable as refrencing variable..
+        update current to next untill it encounters null, if null is encountered then add new node at current position */
+        Node current = head; //start from head
+        while(current.next != null){ //check from head if current's next is null
+            current = current.next; //move current to next node
+        }
+        current.next = newNode; //assign current's next to new node
+    }
+
     // Method to display the linked list
     public void display() {
         Node current = head; // Start from the head by assigning a refrence variable named current
-        while (current != null) {
+        while (current != null) { 
             System.out.print(current.data + " -> "); // Print data of current node
             current = current.next; // Move current to the next node
         }
@@ -44,14 +63,27 @@ public class addFirstLL {
         // Make an object of LL class to create a linked list
         LL list = new LL();
 
-        // Add some data
+        // Add some data at first position of list
         list.addFirst("LinkedList");
         list.addFirst("of");
         list.addFirst("example");
         list.addFirst("is");
         list.addFirst("this");
 
-        // Display linked list
-        list.display(); // Output: this -> is -> example -> of -> LinkedList -> null
+        // Display linked list after adding at first position
+        System.out.println("Linked list after adding elements at first position: ");
+        list.display();
+
+        //add some data at end of list
+        list.addLast("Data");
+        list.addLast("at");
+        list.addLast("End");
+
+        //newline for clear result
+        System.out.println();
+
+        //Display linked list after adding at last position
+        System.out.println("Linked list after adding elements at last position: ");
+        list.display();
     }
 }
