@@ -1,5 +1,17 @@
-import secrets
+# List Example (Mutable)
+my_list = [10, 20, 30, 40]
+print("Original List:", my_list)
 
-bruh = secrets.token_hex(10000000)
+# Modifying the list
+my_list[0] = 99
+print("Modified List:", my_list)
 
-print(bruh)
+# Tuple Example (Immutable)
+my_tuple = (10, 20, 30, 40)
+print("\nOriginal Tuple:", my_tuple)
+
+# Trying to modify a tuple will result in an error
+try:
+    my_tuple[0] = 99  # This will raise an error
+except TypeError as e:
+    print("Error:", e)
