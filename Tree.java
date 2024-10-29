@@ -16,6 +16,8 @@ public class Tree{
         sc = new Scanner(System.in);
         //call createTree method to create a Binary Tree
         createTree();
+        System.out.println("Tree in Order: ");
+        inOrder(root);
     }
 
     //method for creating/implementing tree
@@ -50,9 +52,35 @@ public class Tree{
 
         //recursive call for left node
         inOrder(root.left);
-        System.out.println(root.data);//print data, left most node
+        System.out.print(root.data + " ");//print data, left most node
         //recursive call for right node
         inOrder(root.right);
+    }
+
+    //method to print tree in pre Order "N L R" node left right
+    static void preOrder(Node root){
+        if(root == null){
+            return;
+        }
+
+        System.out.println(root.data);//print data
+        //recursive call for left node
+        preOrder(root.left);
+        //recursive call for right node
+        preOrder(root.right);
+    }
+
+    //method to print tree in post Order "N L R" node left right
+    static void postOrder(Node root){
+        if(root == null){
+            return;
+        }
+
+        //recursive call for left node
+        postOrder(root.left);
+        //recursive call for right node
+        postOrder(root.right);
+        System.out.println(root.data);//print data
     }
 }
 /*
