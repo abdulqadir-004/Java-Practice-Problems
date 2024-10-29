@@ -11,13 +11,19 @@ class Node{
 }
 
 public class Tree{
-    static Scanner sc = null;
+    static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
-        sc = new Scanner(System.in);
         //call createTree method to create a Binary Tree
-        createTree();
+        Node root = createTree();
+        //print tree in order
         System.out.println("Tree in Order: ");
         inOrder(root);
+        //print tree in pre order
+        System.out.println("\nTree in Order: ");
+        preOrder(root);
+        //print tree in post order
+        System.out.println("\nTree in Order: ");
+        postOrder(root);
     }
 
     //method for creating/implementing tree
@@ -63,7 +69,7 @@ public class Tree{
             return;
         }
 
-        System.out.println(root.data);//print data
+        System.out.print(root.data + " ");//print data
         //recursive call for left node
         preOrder(root.left);
         //recursive call for right node
@@ -80,7 +86,7 @@ public class Tree{
         postOrder(root.left);
         //recursive call for right node
         postOrder(root.right);
-        System.out.println(root.data);//print data
+        System.out.print(root.data + " ");//print data
     }
 }
 /*
