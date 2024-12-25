@@ -12,6 +12,7 @@ class LL {
             this.next = null; // Currently set next reference as null
         }
     }
+    //comment
 
     // Method to add new nodes at the first position of the linked list
     public void addFirst(String data) {
